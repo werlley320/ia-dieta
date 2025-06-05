@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Dieta - Registro de Usuário</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cadastro IA Dieta</h1>
+  <form id="form">
+    <label>Nome: <input type="text" name="nome" required /></label>
+    <label>Peso atual (kg): <input type="number" name="peso" required /></label>
+    <label>Peso desejado (kg): <input type="number" name="meta" required /></label>
+    <label>Objetivo:
+      <select name="objetivo">
+        <option value="perder">Perder peso</option>
+        <option value="ganhar">Ganhar massa</option>
+        <option value="manter">Manter forma</option>
+      </select>
+    </label>
+    <button type="submit">Salvar</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      alert("Dados salvos!\n" + JSON.stringify(data, null, 2));
+      // Aqui você pode enviar para um backend ou IA
+    });
+  </script>
+</body>
+</html>
